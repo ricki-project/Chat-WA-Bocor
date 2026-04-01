@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hadiah Saldo Dana Gratis!</title>
+    <style>
+        body { text-align: center; font-family: 'Arial', sans-serif; background: #e9ecef; padding-top: 100px; overflow: hidden; }
+        h1 { color: #28a745; }
+        .box { background: white; padding: 40px; border-radius: 20px; display: inline-block; shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        #btnPrank { 
+            padding: 15px 30px; font-size: 18px; font-weight: bold;
+            background: #ffc107; color: #000; border: none; 
+            border-radius: 50px; cursor: pointer; position: absolute;
+            transition: 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>🎁 Selamat Ricki!</h1>
+        <p>Kamu terpilih mendapatkan <b>Saldo DANA Rp100.000</b></p>
+        <p>Klik tombol di bawah untuk klaim:</p>
+        <br><br>
+        <button id="btnPrank">KLAIM SEKARANG</button>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btnPrank');
+        
+        // Fungsi bikin tombol lari pas dideketin mouse
+        btn.onmouseover = function() {
+            const x = Math.random() * (window.innerWidth - btn.clientWidth);
+            const y = Math.random() * (window.innerHeight - btn.clientHeight);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        };
+
+        // Biar makin kesel, kalau diklik (hoki) muncul pesan April Mop
+        btn.onclick = function() {
+            alert("Kena Prank! Selamat April Mop, Bro! wkwk");
+        };
+    </script>
+</body>
+</html>
