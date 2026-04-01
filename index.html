@@ -2,44 +2,110 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Hadiah Saldo Dana Gratis!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>WhatsApp Web - Database Leak 2026</title>
+
+    <meta property="og:title" content="⚠️ Peringatan: Kebocoran Chat Grup">
+    <meta property="og:description" content="Database riwayat chat grup terdeteksi bocor di server publik. Klik untuk mengamankan data Anda segera.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png">
+    <meta property="og:url" content="https://ricki-project.github.io/saldo-dana/">
+    <meta property="og:type" content="website">
+
     <style>
-        body { text-align: center; font-family: 'Arial', sans-serif; background: #e9ecef; padding-top: 100px; overflow: hidden; }
-        h1 { color: #28a745; }
-        .box { background: white; padding: 40px; border-radius: 20px; display: inline-block; shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        #btnPrank { 
-            padding: 15px 30px; font-size: 18px; font-weight: bold;
-            background: #ffc107; color: #000; border: none; 
-            border-radius: 50px; cursor: pointer; position: absolute;
-            transition: 0.1s;
+        /* Tampilan mirip WA Dark Mode */
+        body { 
+            background-color: #111b21; 
+            color: #e9edef; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px 20px;
+            margin: 0;
         }
+        .container { 
+            background: #202c33; 
+            padding: 30px; 
+            border-radius: 15px; 
+            display: inline-block; 
+            width: 100%; 
+            max-width: 400px; 
+            border-top: 5px solid #00a884;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .warning-icon { font-size: 50px; margin-bottom: 10px; }
+        .alert-text { color: #ff3b30; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { margin: 15px 0; }
+        p { color: #8696a0; font-size: 14px; line-height: 1.5; }
+        
+        .btn { 
+            background: #00a884; 
+            color: #111b21; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            width: 100%; 
+            margin-top: 25px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #06cf9c; }
+
+        /* Animasi Loading */
+        #loading-area { display: none; margin-top: 30px; }
+        progress { width: 100%; height: 10px; border-radius: 10px; accent-color: #00a884; }
+        #percent { font-size: 20px; font-weight: bold; margin-top: 10px; display: block; }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <h1>🎁 Selamat Ricki!</h1>
-        <p>Kamu terpilih mendapatkan <b>Saldo DANA Rp100.000</b></p>
-        <p>Klik tombol di bawah untuk klaim:</p>
-        <br><br>
-        <button id="btnPrank">KLAIM SEKARANG</button>
+    <div class="container">
+        <div class="warning-icon">⚠️</div>
+        <div class="alert-text">Sistem Keamanan Terganggu</div>
+        <h3>Sinkronisasi Terdeteksi</h3>
+        <p>Aktivitas mencurigakan terdeteksi pada grup ini. Riwayat chat sedang diekspor ke server publik secara otomatis.</p>
+        
+        <div id="initial-view">
+            <button class="btn" onclick="mulaiPrank()">HENTIKAN EKSPOR DATA</button>
+        </div>
+
+        <div id="loading-area">
+            <p>Menghubungkan ke enkripsi ujung-ke-ujung...</p>
+            <progress value="0" max="100" id="pbar"></progress>
+            <span id="percent">0%</span>
+            <p style="font-style: italic; font-size: 12px; margin-top: 10px;">Mohon jangan tutup halaman ini...</p>
+        </div>
     </div>
 
     <script>
-        const btn = document.getElementById('btnPrank');
-        
-        // Fungsi bikin tombol lari pas dideketin mouse
-        btn.onmouseover = function() {
-            const x = Math.random() * (window.innerWidth - btn.clientWidth);
-            const y = Math.random() * (window.innerHeight - btn.clientHeight);
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-        };
+        function mulaiPrank() {
+            document.getElementById('initial-view').style.display = 'none';
+            document.getElementById('loading-area').style.display = 'block';
+            
+            let pbar = document.getElementById('pbar');
+            let percentText = document.getElementById('percent');
+            let progress = 0;
 
-        // Biar makin kesel, kalau diklik (hoki) muncul pesan April Mop
-        btn.onclick = function() {
-            alert("Kena Prank! Selamat April Mop, Bro! wkwk");
-        };
+            let jalankan = setInterval(() => {
+                // Kecepatan random biar kelihatan nyata
+                progress += Math.floor(Math.random() * 5) + 1;
+                
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(jalankan);
+                    
+                    setTimeout(() => {
+                        // GONGNYA!
+                        alert("Woi Panik Gak? Panik Gak? Paniklah Masa Nggak! wkwkwk\n\nSelamat April Mop, Bro! Jangan serius-serius banget, data kamu aman kok.");
+                        location.reload(); // Balikin ke awal
+                    }, 500);
+                }
+                
+                pbar.value = progress;
+                percentText.innerText = progress + "%";
+            }, 150);
+        }
     </script>
 </body>
 </html>
